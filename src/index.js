@@ -13,10 +13,11 @@ function Square(props) {
   );
 }
 
-function Play() {
-  useSound(mySound, { volume: 0.7 }); // 70% of the original volume
-}
 
+function playSound() {
+  var audio = new Audio('https://bigsoundbank.com/UPLOAD/mp3/2363.mp3');
+  audio.play();
+}
 
 
 function MyButton() {
@@ -166,6 +167,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      playSound();
       return squares[a];
     }
   }
